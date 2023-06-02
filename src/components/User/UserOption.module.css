@@ -1,0 +1,27 @@
+.content {
+  max-width: 50rem;
+  width: 90%;
+  margin: 2rem auto;
+  animation: content-appear 1s ease-out forwards;
+}
+
+.content ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+@keyframes content-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

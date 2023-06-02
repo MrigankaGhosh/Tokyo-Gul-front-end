@@ -20,13 +20,7 @@ const AvailableMeals = () => {
           description: responseData[key].category,
           price: responseData[key].price,
         });
-        console.log(key);
       }
-      console.log(
-        "-------------------------------------------------\n" +
-          loadedData +
-          "\n-------------------------------------------------"
-      );
 
       setMeals(loadedData);
     };

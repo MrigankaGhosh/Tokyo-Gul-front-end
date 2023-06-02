@@ -16,6 +16,8 @@ const HeaderCartButton = (props) => {
 
   const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ''}`;
 
+  // To highlight and un-highlight the Cart Button.
+
   useEffect(() => {
     if (items.length === 0) {
       return;
