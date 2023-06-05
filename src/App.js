@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Bill from "./pages/Bill";
 import Index from "./pages/Index";
 import Menu from "./pages/Menu";
 
@@ -11,6 +12,10 @@ function App() {
     {
       index: true,
       element: <Index />,
+    },
+    {
+      path: "bill",
+      element: <Bill />,
     },
   ]);
 
