@@ -8,7 +8,7 @@ const AvailableMeals = () => {
 
   useEffect(() => {
     const fetchMeal = async () => {
-      const response = await fetch("http://localhost:8090/menu");
+      const response = await fetch("http://localhost:8091/menu");
       const responseData = await response.json();
 
       const loadedData = [];

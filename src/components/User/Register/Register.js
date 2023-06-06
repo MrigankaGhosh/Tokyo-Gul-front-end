@@ -4,7 +4,7 @@ import classes from "./Register.module.css";
 
 const Register = (props) => {
   const addDataHandler = async (userData) => {
-    const response = await fetch("http://localhost:8090/register", {
+    const response = await fetch("http://localhost:8091/register", {
       method: "POST",
       body: JSON.stringify(userData),
       headers: {

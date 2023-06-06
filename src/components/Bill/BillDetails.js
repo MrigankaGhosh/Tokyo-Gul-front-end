@@ -1,45 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Card from "../UI/Card";
 import classes from "./BillDetails.module.css";
 
-/*
-const DUMMY_Bill = {
-  name: "Mriganka",
-  phoneNumber: "1234567890",
-  email: "ghosh@gmail.com",
-  finalBill: "14.40",
-  discount: "5.00",
-  taxDeduction: "2.40",
-};
-*/
-let DUMMY_Bill;
-
 const BillDetails = () => {
-  //const [DUMMY_Bill, setBill] = useState();
+  const [DUMMY_Bill, setBill] = useState({});
 
   useEffect(() => {
     const fetchMeal = async () => {
-      const response = await fetch("http://localhost:8090/bill");
+      const response = await fetch("http://localhost:8091/bill");
       const responseData = await response.json();
 
       console.log(responseData);
 
-      //const { name, phoneNumber, email, finalBill, discount, taxDeduction } =
-       // responseData;
+      console.log(responseData.name);
 
-      //console.log(name + "...........");
-      console.log(".........." + responseData.email);
-
-      DUMMY_Bill = {
-        name: responseData.name,
-        phoneNumber: responseData.phoneNumber,
-        email: responseData.email,
-        finalBill: responseData.finalBill,
-        discount: responseData.discount,
-        taxDeduction: responseData.taxDeduction,
-      };
-
-      //setBill(responseData);
+      setBill(responseData);
     };
 
     fetchMeal();

@@ -21,7 +21,7 @@ const Checkout = (props) => {
 
     const addDataHandler = async (orderedItems) => {
       const response = await fetch(
-        "http://localhost:8090/menu?phoneNumber=" + phoneNumber.current.value,
+        "http://localhost:8091/menu?phoneNumber=" + phoneNumber.current.value,
         {
           method: "POST",
           body: JSON.stringify({ strings: [`${[...orderedItems]}`] }),
