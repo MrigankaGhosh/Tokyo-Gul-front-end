@@ -1,22 +1,23 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import CartContext from "../../store/cart-context";
 import classes from "./Checkout.module.css";
 
 const Checkout = (props) => {
   const phoneNumber = useRef();
   const cartCtx = useContext(CartContext);
+  const [showBillBtn, setShowBillBtn] = useState(false);
 
   let orderedItems = [];
-  let Array;
 
   const confirmHandler = (e) => {
     e.preventDefault();
+
     cartCtx.items.map((item) => {
       console.log(item.name);
       return orderedItems.push(item.name);
     });
 
-    console.log("........: " + Array);
     console.log("Before sending: " + orderedItems);
 
     const addDataHandler = async (orderedItems) => {
@@ -35,9 +36,10 @@ const Checkout = (props) => {
 
     addDataHandler(orderedItems);
     orderedItems = [];
+    setShowBillBtn(true);
   };
 
-  return (
+  const form = (
     <form className={classes.form} onSubmit={confirmHandler}>
       <div className={classes.control}>
         <label htmlFor="phNumber">Phone Number</label>
@@ -57,6 +59,27 @@ const Checkout = (props) => {
         <button className={classes.submit}>Confirm</button>
       </div>
     </form>
+  );
+
+  const billBtn = (
+    <div className={classes.actions}>
+      <Link to="/bill">
+        <button
+          type="button"
+          onClick={props.onCancel}
+          className={classes.submit}
+        >
+          Show Bill
+        </button>
+      </Link>
+    </div>
+  );
+
+  return (
+    <>
+      {!showBillBtn && form}
+      {showBillBtn && billBtn}
+    </>
   );
 };
 
